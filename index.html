@@ -10,9 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #F8F4EF; --surface: #FFFDFA; --ink: #2E211D; --muted: #6E615B; --faint: #9C8F88;
-  --rule: #E7DED6; --track: #F0E9E2; --accent: #B8322C; --accent-ink: #9E2A25;
-  --mid: #EBA19A; --ref: #C9BDB4; --plate: #FFFFFF;
+  --bg: #F7F8FA; --surface: #FFFFFF; --ink: #0E1420; --muted: #5B6576; --faint: #8A93A3;
+  --rule: #E3E7EE; --track: #EEF1F5; --accent: #0E1420; --accent-ink: #0E1420; --action: #0E1420; --action-hover: #2A3342;
+  --mid: #FFD3D0; --ref: #C3CAD5; --plate: #FFFFFF;
   --font: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   color-scheme: light;
 }
@@ -106,7 +106,7 @@ h1 .soft { color: var(--faint); }
 .dash-actions { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px; border-top: 1px solid var(--rule); background: var(--surface); }
 .dash-actions button, .dash-actions a { font: 500 14px var(--font); padding: 8px 14px; border-radius: 999px; border: 1px solid var(--rule); background: var(--surface); color: var(--ink); text-decoration: none; cursor: pointer; }
 .dash-actions button { background: var(--ink); color: var(--bg); border-color: var(--ink); }
-.dash-actions button:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+.dash-actions button:hover { background: var(--action-hover); border-color: var(--action-hover); color: var(--bg); }
 .dash-actions a:hover { border-color: var(--ink); }
 
 
@@ -114,7 +114,7 @@ h1 .soft { color: var(--faint); }
 .sub-lead { margin-top: -10px; margin-bottom: 20px; color: var(--muted); font-size: 15px; max-width: 42em; }
 .notebooks { list-style: none; margin: 0; padding: 0; counter-reset: nb; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .notebooks > li { counter-increment: nb; background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; padding: 22px 22px 18px; display: flex; flex-direction: column; }
-.nb-file { font-size: 12.5px; color: var(--accent-ink); font-family: ui-monospace, "SF Mono", Menlo, monospace; }
+.nb-file { font-size: 12.5px; color: var(--muted); font-family: ui-monospace, "SF Mono", Menlo, monospace; }
 .nb-file::before { content: counter(nb) "  "; color: var(--faint); font-family: var(--font); font-weight: 600; }
 .notebooks h4 { margin-top: 8px; font-size: 18px; font-weight: 600; letter-spacing: -.02em; line-height: 1.25; }
 .nb-lead { margin-top: 6px; font-size: 14.5px; }
@@ -126,8 +126,8 @@ h1 .soft { color: var(--faint); }
 .app-block { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr); gap: 40px; margin-top: 56px; padding-top: 8px; }
 .app-intro .sub { margin-top: 0; }
 .app-intro .sub-lead { margin-top: 0; }
-.app-link { display: inline-block; font-size: 14px; font-weight: 500; text-decoration: none; padding: 9px 16px; border-radius: 999px; background: var(--accent); color: #fff; }
-.app-link:hover { background: var(--accent-ink); }
+.app-link { display: inline-block; font-size: 14px; font-weight: 500; text-decoration: none; padding: 9px 16px; border-radius: 999px; background: var(--action); color: var(--bg); }
+.app-link:hover { background: var(--action-hover); }
 .views { margin: 0; border-top: 1px solid var(--ink); }
 .views div { display: grid; grid-template-columns: 170px 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--rule); }
 .views dt { font-weight: 600; font-size: 15px; }
@@ -135,7 +135,7 @@ h1 .soft { color: var(--faint); }
 .mini { margin: 40px 0 12px; font-size: 15px; font-weight: 600; }
 .modules code, .tests code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12.5px; }
 .modules th[scope="row"] { white-space: nowrap; }
-.code { margin: 0; padding: 20px 22px; background: #2E211D; color: #F3E9E1; border-radius: 12px; overflow-x: auto; font: 13px/1.65 ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+.code { margin: 0; padding: 20px 22px; background: #0E1420; color: #E6EBF3; border-radius: 12px; overflow-x: auto; font: 13px/1.65 ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
 
 
 /* Project deck */
@@ -173,12 +173,38 @@ h1 .soft { color: var(--faint); }
 .panel.active .panel-body { opacity: 1; transform: none; transition: opacity .35s ease-in .4s, transform .35s ease-out .4s; }
 .panel-kicker { font-size: 13.5px; color: var(--strong); font-weight: 500; }
 .panel-title { font-size: clamp(30px, 3.6vw, 48px); font-weight: 600; letter-spacing: -.045em; line-height: 1.02; }
-.panel-q { font-size: 16.5px; line-height: 1.45; color: #4A3C36; }
+.panel-q { font-size: 16.5px; line-height: 1.45; color: #3B4454; }
 .panel-hint { margin-top: 6px; font-size: 13.5px; color: var(--muted); }
 .panel-hint::after { content: "  ↓"; }
 .cases { padding-top: 72px; }
 .js-deck .project { padding-bottom: 0; margin-bottom: 0; border-bottom: 0; }
 .project:focus { outline: none; }
+
+
+/* Colour system */
+body { overflow-x: clip; }
+.chips { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; padding-bottom: 88px; }
+.chip { display: flex; flex-direction: column; text-decoration: none; background: var(--surface); border-radius: 14px; overflow: hidden;
+  box-shadow: 0 1px 0 rgba(46,33,29,.06), 0 10px 24px -18px rgba(46,33,29,.35); transition: transform .25s cubic-bezier(.2,.7,.2,1), box-shadow .25s; }
+.chip:hover { transform: translateY(-4px); box-shadow: 0 1px 0 rgba(46,33,29,.06), 0 18px 30px -18px color-mix(in srgb, var(--strong) 60%, transparent); }
+.chip-color { position: relative; height: 104px; background: linear-gradient(to bottom, var(--soft) 0 78%, var(--strong) 78% 100%); }
+.chip-color span { position: absolute; top: 12px; left: 14px; font-size: 13px; font-weight: 600; color: var(--strong); }
+.chip-label { display: flex; flex-direction: column; gap: 2px; padding: 12px 14px 14px; }
+.chip-title { font-size: 14px; font-weight: 500; line-height: 1.3; letter-spacing: -.01em; }
+.chip-name { font-size: 12.5px; color: var(--muted); }
+.project { position: relative; isolation: isolate; }
+.project::before { content: ""; position: absolute; z-index: -1; left: 50%; transform: translateX(-50%); width: 100vw; top: -72px; height: 560px;
+  background: linear-gradient(to bottom, color-mix(in srgb, var(--soft) 30%, var(--bg)) 0%, color-mix(in srgb, var(--soft) 30%, var(--bg)) 55%, var(--bg) 100%); }
+.site-foot { background: #0E1420; color: #F7F8FA; margin-top: 96px; }
+.strip { display: grid; grid-template-columns: repeat(6, 1fr); height: 8px; }
+.site-foot .foot { border-top: 0; padding: 64px 0 72px; }
+.site-foot .foot h2 { font-size: clamp(40px, 6vw, 80px); letter-spacing: -.055em; }
+.site-foot .foot li { border-bottom-color: rgba(247,248,250,.14); padding: 12px 0; }
+.site-foot .foot li a:hover { color: #9CC2FF; }
+.site-foot .foot small { color: #8A93A3; }
+.site-foot :focus-visible { outline-color: #9CC2FF; }
+
+
 
 /* Body layout */
 .body { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 56px; padding: 96px 0 40px; }
@@ -196,7 +222,7 @@ h1 .soft { color: var(--faint); }
 .project:last-child { border-bottom: 0; margin-bottom: 0; }
 .p-head { display: grid; grid-template-columns: 64px 1fr; gap: 8px; margin-bottom: 32px; }
 .p-n { font-size: 15px; color: var(--faint); padding-top: 8px; }
-.p-kicker { font-size: 14px; color: var(--accent-ink); font-weight: 500; }
+.p-kicker { font-size: 14px; color: var(--muted); font-weight: 500; }
 .project h2 { font-size: clamp(32px, 4.2vw, 50px); line-height: 1.05; letter-spacing: -.045em; font-weight: 600; margin-top: 4px; }
 .p-q { margin-top: 14px; font-size: clamp(18px, 1.7vw, 21px); line-height: 1.45; max-width: 34em; letter-spacing: -.012em; }
 
@@ -235,7 +261,7 @@ h1 .soft { color: var(--faint); }
 .steps li { counter-increment: s; position: relative; padding: 22px 22px 6px 0; }
 .steps li::before { content: counter(s); position: absolute; top: -12px; left: 0; width: 24px; height: 24px; border-radius: 50%;
   background: var(--bg); border: 1px solid var(--ink); font-size: 12px; font-weight: 600; display: grid; place-items: center; }
-.steps li:last-child::before { background: var(--accent); border-color: var(--accent); color: #fff; }
+.steps li:last-child::before { background: var(--action); border-color: var(--action); color: var(--bg); }
 .steps h4 { font-size: 15px; font-weight: 600; letter-spacing: -.01em; margin-top: 6px; }
 .steps p { margin-top: 6px; font-size: 14px; color: var(--muted); line-height: 1.55; }
 
@@ -254,7 +280,7 @@ h1 .soft { color: var(--faint); }
 .p-links a { font-size: 14px; font-weight: 500; text-decoration: none; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--rule); background: var(--surface); white-space: nowrap; }
 .p-links a:hover { border-color: var(--ink); }
 .p-links a.primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
-.p-links a.primary:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+.p-links a.primary:hover { background: var(--action-hover); border-color: var(--action-hover); color: var(--bg); }
 
 /* Footer */
 .foot { border-top: 1px solid var(--ink); padding: 40px 0 56px; display: grid; grid-template-columns: 1fr; gap: 28px; }
@@ -263,7 +289,7 @@ h1 .soft { color: var(--faint); }
 .foot ul { list-style: none; margin: 0; padding: 0; font-size: 15px; }
 .foot li { padding: 10px 0; border-bottom: 1px solid var(--rule); }
 .foot li a { text-decoration: none; display: flex; justify-content: space-between; }
-.foot li a:hover { color: var(--accent-ink); }
+.foot li a:hover { color: var(--muted); }
 .foot small { display: block; margin-top: 18px; color: var(--faint); font-size: 13px; }
 
 @media (max-width: 1080px) {
@@ -273,6 +299,7 @@ h1 .soft { color: var(--faint); }
   .index { display: none; }
 }
 @media (max-width: 900px) {
+  .chips { grid-template-columns: repeat(3, minmax(0, 1fr)); padding-bottom: 64px; }
   .notebooks { grid-template-columns: 1fr; }
   .app-block { grid-template-columns: 1fr; gap: 20px; }
   .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -290,6 +317,8 @@ h1 .soft { color: var(--faint); }
   .foot { grid-template-columns: 1fr; gap: 28px; }
 }
 @media (max-width: 600px) {
+  .chips { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .chip-color { height: 80px; }
   .deck { flex-direction: column; height: auto; gap: 8px; }
   .panel { flex: none; height: 64px; border-radius: 20px; transition: height .6s cubic-bezier(.4,.1,.2,1); }
   .panel.active { flex: none; height: 380px; }
@@ -320,6 +349,7 @@ h1 .soft { color: var(--faint); }
   .plate iframe { height: 440px; }
 }
 @media (prefers-reduced-motion: reduce) {
+  .chip { transition: none !important; }
   .panel, .panel-body, .motif { transition: none !important; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -345,15 +375,17 @@ h1 .soft { color: var(--faint); }
       <p class="byline">María Carolina</p>
       <h1 id="title">Data Portfolio</h1>
     </div>
-    <p class="lede">Data scientist based in Mexico with an M.Sc. in Data Science, Big Data and Business Analytics from Complutense University of Madrid. Anthropology taught me to question where data comes from and who it serves.<strong> Below are the projects that challenged me most, and that I enjoyed most.</strong></p>
+    <p class="lede">I'm a data scientist based in Mexico with an M.Sc. in Data Science, Big Data and Business Analytics from Complutense University of Madrid. I came to data from anthropology, so I care about where data comes from and who will use the result. <strong>These are the projects I've enjoyed most, because each one challenged me.</strong></p>
   </section>
+
+  <nav class="wrap chips" aria-label="Projects by colour"><a class="chip" href="#restaurants" style="--soft:#FFD3D0;--strong:#D93D42"><span class="chip-color" aria-hidden="true"><span>01</span></span><span class="chip-label"><span class="chip-title">Madrid Restaurant Intelligence</span><span class="chip-name">Coral</span></span></a><a class="chip" href="#pump" style="--soft:#CFE0FF;--strong:#1F6FEB"><span class="chip-color" aria-hidden="true"><span>02</span></span><span class="chip-label"><span class="chip-title">Pump It Up</span><span class="chip-name">Azure</span></span></a><a class="chip" href="#glucose" style="--soft:#F9D0E8;--strong:#C2338A"><span class="chip-color" aria-hidden="true"><span>03</span></span><span class="chip-label"><span class="chip-title">Glucose Tolerance</span><span class="chip-name">Magenta</span></span></a><a class="chip" href="#loans" style="--soft:#C4F0DD;--strong:#0E8A60"><span class="chip-color" aria-hidden="true"><span>04</span></span><span class="chip-label"><span class="chip-title">Easy Loans</span><span class="chip-name">Emerald</span></span></a><a class="chip" href="#game" style="--soft:#DDD5FC;--strong:#6346C9"><span class="chip-color" aria-hidden="true"><span>05</span></span><span class="chip-label"><span class="chip-title">Guess the Number</span><span class="chip-name">Violet</span></span></a><a class="chip" href="#hostnames" style="--soft:#FFE3B0;--strong:#B26A00"><span class="chip-color" aria-hidden="true"><span>06</span></span><span class="chip-label"><span class="chip-title">Hostname Generator</span><span class="chip-name">Amber</span></span></a></nav>
 
   <section class="wrap skills" id="skills" aria-labelledby="skills-t">
     <div class="skills-head">
       <h2 id="skills-t">Skills used</h2>
       <p>Numbers show the projects where each tool or method appears.</p>
     </div>
-    <div class="skill-grid"><div class="skill-group"><h3>Data preparation</h3><ul><li><span>Python</span><span class="refs"><a href="#restaurants" style="--c:#B8322C" aria-label="Madrid Restaurant Intelligence">01</a><a href="#pump" style="--c:#3F6A80" aria-label="Pump It Up">02</a><a href="#glucose" style="--c:#9C4D72" aria-label="Glucose Tolerance">03</a><a href="#game" style="--c:#5E4B9A" aria-label="Guess the Number">05</a><a href="#hostnames" style="--c:#8F6B0B" aria-label="Hostname Generator">06</a></span></li><li><span>pandas</span><span class="refs"><a href="#restaurants" style="--c:#B8322C" aria-label="Madrid Restaurant Intelligence">01</a><a href="#pump" style="--c:#3F6A80" aria-label="Pump It Up">02</a><a href="#glucose" style="--c:#9C4D72" aria-label="Glucose Tolerance">03</a><a href="#game" style="--c:#5E4B9A" aria-label="Guess the Number">05</a><a href="#hostnames" style="--c:#8F6B0B" aria-label="Hostname Generator">06</a></span></li><li><span>NumPy</span><span class="refs"><a href="#pump" style="--c:#3F6A80" aria-label="Pump It Up">02</a><a href="#glucose" style="--c:#9C4D72" aria-label="Glucose Tolerance">03</a><a href="#hostnames" style="--c:#8F6B0B" aria-label="Hostname Generator">06</a></span></li><li><span>Pandera</span><span class="refs"><a href="#restaurants" style="--c:#B8322C" aria-label="Madrid Restaurant Intelligence">01</a></span></li><li><span>Parquet</span><span class="refs"><a href="#restaurants" style="--c:#B8322C" aria-label="Madrid Restaurant Intelligence">01</a></span></li><li><span>Feature engineering</span><span class="refs"><a href="#pump" style="--c:#3F6A80" aria-label="Pump It Up">02</a></span></li></ul></div><div class="skill-group"><h3>Machine learning</h3><ul><li><span>scikit-learn</span><span class="refs"><a href="#restaurants" style="--c:#B8322C" aria-label="Madrid Restaurant Intelligence">01</a><a href="#pump" style="--c:#3F6A80" aria-label="Pump It Up">02</a></span></li><li><span>TF-IDF and LinearSVC</span><span class="refs"><a href="#restaurants" style="--c:#B8322C" aria-label="Madrid Restaurant Intelligence">01</a></span></li><li><span>LightGBM and CatBoost</span><span class="refs"><a href="#pump" style="--c:#3F6A80" aria-label="Pump It Up">02</a></span></li><li><span>Optuna</span><span class="refs"><a href="#pump" style="--c:#3F6A80" aria-label="Pump It Up">02</a></span></li><li><span>Target encoding</span><span class="refs"><a href="#pump" style="--c:#3F6A80" aria-label="Pump It Up">02</a></span></li><li><span>MLflow</span><span class="refs"><a href="#restaurants" style="--c:#B8322C" aria-label="Madrid Restaurant Intelligence">01</a></span></li></ul></div><div class="skill-group"><h3>Statistics</h3><ul><li><span>Hypothesis testing</span><span class="refs"><a href="#glucose" style="--c:#9C4D72" aria-label="Glucose Tolerance">03</a></span></li><li><span>Confidence intervals</span><span class="refs"><a href="#glucose" style="--c:#9C4D72" aria-label="Glucose Tolerance">03</a></span></li><li><span>Linear regression</span><span class="refs"><a href="#glucose" style="--c:#9C4D72" aria-label="Glucose Tolerance">03</a></span></li><li><span>Normality checks</span><span class="refs"><a href="#glucose" style="--c:#9C4D72" aria-label="Glucose Tolerance">03</a></span></li><li><span>SciPy, statsmodels</span><span class="refs"><a href="#glucose" style="--c:#9C4D72" aria-label="Glucose Tolerance">03</a></span></li></ul></div><div class="skill-group"><h3>Visualization and BI</h3><ul><li><span>Tableau</span><span class="refs"><a href="#loans" style="--c:#56671F" aria-label="Easy Loans">04</a></span></li><li><span>Matplotlib</span><span class="refs"><a href="#glucose" style="--c:#9C4D72" aria-label="Glucose Tolerance">03</a><a href="#game" style="--c:#5E4B9A" aria-label="Guess the Number">05</a><a href="#hostnames" style="--c:#8F6B0B" aria-label="Hostname Generator">06</a></span></li><li><span>Seaborn</span><span class="refs"><a href="#glucose" style="--c:#9C4D72" aria-label="Glucose Tolerance">03</a><a href="#hostnames" style="--c:#8F6B0B" aria-label="Hostname Generator">06</a></span></li><li><span>Plotly</span><span class="refs"><a href="#restaurants" style="--c:#B8322C" aria-label="Madrid Restaurant Intelligence">01</a></span></li><li><span>Dashboard design</span><span class="refs"><a href="#loans" style="--c:#56671F" aria-label="Easy Loans">04</a></span></li></ul></div><div class="skill-group"><h3>Applications</h3><ul><li><span>Streamlit</span><span class="refs"><a href="#restaurants" style="--c:#B8322C" aria-label="Madrid Restaurant Intelligence">01</a><a href="#game" style="--c:#5E4B9A" aria-label="Guess the Number">05</a><a href="#hostnames" style="--c:#8F6B0B" aria-label="Hostname Generator">06</a></span></li><li><span>FastAPI</span><span class="refs"><a href="#restaurants" style="--c:#B8322C" aria-label="Madrid Restaurant Intelligence">01</a></span></li><li><span>Modular Python</span><span class="refs"><a href="#game" style="--c:#5E4B9A" aria-label="Guess the Number">05</a></span></li><li><span>Excel persistence</span><span class="refs"><a href="#game" style="--c:#5E4B9A" aria-label="Guess the Number">05</a></span></li><li><span>Git and GitHub</span><span class="refs"><a href="#restaurants" style="--c:#B8322C" aria-label="Madrid Restaurant Intelligence">01</a><a href="#pump" style="--c:#3F6A80" aria-label="Pump It Up">02</a><a href="#glucose" style="--c:#9C4D72" aria-label="Glucose Tolerance">03</a><a href="#game" style="--c:#5E4B9A" aria-label="Guess the Number">05</a><a href="#hostnames" style="--c:#8F6B0B" aria-label="Hostname Generator">06</a></span></li></ul></div></div>
+    <div class="skill-grid"><div class="skill-group"><h3>Data preparation</h3><ul><li><span>Python</span><span class="refs"><a href="#restaurants" style="--c:#D93D42" aria-label="Madrid Restaurant Intelligence">01</a><a href="#pump" style="--c:#1F6FEB" aria-label="Pump It Up">02</a><a href="#glucose" style="--c:#C2338A" aria-label="Glucose Tolerance">03</a><a href="#game" style="--c:#6346C9" aria-label="Guess the Number">05</a><a href="#hostnames" style="--c:#B26A00" aria-label="Hostname Generator">06</a></span></li><li><span>pandas</span><span class="refs"><a href="#restaurants" style="--c:#D93D42" aria-label="Madrid Restaurant Intelligence">01</a><a href="#pump" style="--c:#1F6FEB" aria-label="Pump It Up">02</a><a href="#glucose" style="--c:#C2338A" aria-label="Glucose Tolerance">03</a><a href="#game" style="--c:#6346C9" aria-label="Guess the Number">05</a><a href="#hostnames" style="--c:#B26A00" aria-label="Hostname Generator">06</a></span></li><li><span>NumPy</span><span class="refs"><a href="#pump" style="--c:#1F6FEB" aria-label="Pump It Up">02</a><a href="#glucose" style="--c:#C2338A" aria-label="Glucose Tolerance">03</a><a href="#hostnames" style="--c:#B26A00" aria-label="Hostname Generator">06</a></span></li><li><span>Pandera</span><span class="refs"><a href="#restaurants" style="--c:#D93D42" aria-label="Madrid Restaurant Intelligence">01</a></span></li><li><span>Parquet</span><span class="refs"><a href="#restaurants" style="--c:#D93D42" aria-label="Madrid Restaurant Intelligence">01</a></span></li><li><span>Feature engineering</span><span class="refs"><a href="#pump" style="--c:#1F6FEB" aria-label="Pump It Up">02</a></span></li></ul></div><div class="skill-group"><h3>Machine learning</h3><ul><li><span>scikit-learn</span><span class="refs"><a href="#restaurants" style="--c:#D93D42" aria-label="Madrid Restaurant Intelligence">01</a><a href="#pump" style="--c:#1F6FEB" aria-label="Pump It Up">02</a></span></li><li><span>TF-IDF and LinearSVC</span><span class="refs"><a href="#restaurants" style="--c:#D93D42" aria-label="Madrid Restaurant Intelligence">01</a></span></li><li><span>LightGBM and CatBoost</span><span class="refs"><a href="#pump" style="--c:#1F6FEB" aria-label="Pump It Up">02</a></span></li><li><span>Optuna</span><span class="refs"><a href="#pump" style="--c:#1F6FEB" aria-label="Pump It Up">02</a></span></li><li><span>Target encoding</span><span class="refs"><a href="#pump" style="--c:#1F6FEB" aria-label="Pump It Up">02</a></span></li><li><span>MLflow</span><span class="refs"><a href="#restaurants" style="--c:#D93D42" aria-label="Madrid Restaurant Intelligence">01</a></span></li></ul></div><div class="skill-group"><h3>Statistics</h3><ul><li><span>Hypothesis testing</span><span class="refs"><a href="#glucose" style="--c:#C2338A" aria-label="Glucose Tolerance">03</a></span></li><li><span>Confidence intervals</span><span class="refs"><a href="#glucose" style="--c:#C2338A" aria-label="Glucose Tolerance">03</a></span></li><li><span>Linear regression</span><span class="refs"><a href="#glucose" style="--c:#C2338A" aria-label="Glucose Tolerance">03</a></span></li><li><span>Normality checks</span><span class="refs"><a href="#glucose" style="--c:#C2338A" aria-label="Glucose Tolerance">03</a></span></li><li><span>SciPy, statsmodels</span><span class="refs"><a href="#glucose" style="--c:#C2338A" aria-label="Glucose Tolerance">03</a></span></li></ul></div><div class="skill-group"><h3>Visualization and BI</h3><ul><li><span>Tableau</span><span class="refs"><a href="#loans" style="--c:#0E8A60" aria-label="Easy Loans">04</a></span></li><li><span>Matplotlib</span><span class="refs"><a href="#glucose" style="--c:#C2338A" aria-label="Glucose Tolerance">03</a><a href="#game" style="--c:#6346C9" aria-label="Guess the Number">05</a><a href="#hostnames" style="--c:#B26A00" aria-label="Hostname Generator">06</a></span></li><li><span>Seaborn</span><span class="refs"><a href="#glucose" style="--c:#C2338A" aria-label="Glucose Tolerance">03</a><a href="#hostnames" style="--c:#B26A00" aria-label="Hostname Generator">06</a></span></li><li><span>Plotly</span><span class="refs"><a href="#restaurants" style="--c:#D93D42" aria-label="Madrid Restaurant Intelligence">01</a></span></li><li><span>Dashboard design</span><span class="refs"><a href="#loans" style="--c:#0E8A60" aria-label="Easy Loans">04</a></span></li></ul></div><div class="skill-group"><h3>Applications</h3><ul><li><span>Streamlit</span><span class="refs"><a href="#restaurants" style="--c:#D93D42" aria-label="Madrid Restaurant Intelligence">01</a><a href="#game" style="--c:#6346C9" aria-label="Guess the Number">05</a><a href="#hostnames" style="--c:#B26A00" aria-label="Hostname Generator">06</a></span></li><li><span>FastAPI</span><span class="refs"><a href="#restaurants" style="--c:#D93D42" aria-label="Madrid Restaurant Intelligence">01</a></span></li><li><span>Modular Python</span><span class="refs"><a href="#game" style="--c:#6346C9" aria-label="Guess the Number">05</a></span></li><li><span>Excel persistence</span><span class="refs"><a href="#game" style="--c:#6346C9" aria-label="Guess the Number">05</a></span></li><li><span>Git and GitHub</span><span class="refs"><a href="#restaurants" style="--c:#D93D42" aria-label="Madrid Restaurant Intelligence">01</a><a href="#pump" style="--c:#1F6FEB" aria-label="Pump It Up">02</a><a href="#glucose" style="--c:#C2338A" aria-label="Glucose Tolerance">03</a><a href="#game" style="--c:#6346C9" aria-label="Guess the Number">05</a><a href="#hostnames" style="--c:#B26A00" aria-label="Hostname Generator">06</a></span></li></ul></div></div>
   </section>
 
   <section class="wrap work" id="projects" aria-labelledby="projects-t">
@@ -363,16 +395,16 @@ h1 .soft { color: var(--faint); }
     </div>
     <div class="deck-wrap">
       <div class="glow" aria-hidden="true">
-        <span style="left:2%;top:10%;width:30%;height:60%;background:#EBA19A"></span>
-        <span style="left:26%;top:40%;width:24%;height:55%;background:#F2DA86"></span>
-        <span style="left:42%;top:0;width:26%;height:50%;background:#CBBDEA"></span>
-        <span style="left:58%;top:45%;width:22%;height:50%;background:#C3CF8F"></span>
-        <span style="left:74%;top:5%;width:24%;height:55%;background:#AFC5D2"></span>
-        <span style="left:86%;top:50%;width:14%;height:45%;background:#DDAAC2"></span>
+        <span style="left:2%;top:10%;width:30%;height:60%;background:#FFD3D0"></span>
+        <span style="left:26%;top:40%;width:24%;height:55%;background:#FFE3B0"></span>
+        <span style="left:42%;top:0;width:26%;height:50%;background:#DDD5FC"></span>
+        <span style="left:58%;top:45%;width:22%;height:50%;background:#C4F0DD"></span>
+        <span style="left:74%;top:5%;width:24%;height:55%;background:#CFE0FF"></span>
+        <span style="left:86%;top:50%;width:14%;height:45%;background:#F9D0E8"></span>
       </div>
       <div class="deck" role="tablist" aria-label="Projects">
 <button class="panel active" type="button" role="tab" id="tab-restaurants" data-target="restaurants"
-  aria-controls="restaurants" aria-selected="true" style="--soft:#EBA19A;--strong:#B8322C">
+  aria-controls="restaurants" aria-selected="true" style="--soft:#FFD3D0;--strong:#D93D42">
   <svg class="motif" viewBox="0 0 400 520" preserveAspectRatio="xMidYMin slice" aria-hidden="true"><rect x="40" y="90" width="87" height="18" rx="4" fill="currentColor" opacity="0.35"/><rect x="40" y="136" width="237" height="18" rx="4" fill="currentColor" opacity="0.35"/><rect x="40" y="182" width="240" height="18" rx="4" fill="currentColor" opacity="0.35"/><rect x="40" y="228" width="243" height="18" rx="4" fill="currentColor" opacity="0.35"/><rect x="40" y="274" width="243" height="18" rx="4" fill="currentColor" opacity="0.9"/></svg>
   <span class="panel-n">01</span>
   <span class="panel-short">Madrid Restaurant Intelligence</span>
@@ -384,7 +416,7 @@ h1 .soft { color: var(--faint); }
   </span>
 </button>
 <button class="panel" type="button" role="tab" id="tab-pump" data-target="pump"
-  aria-controls="pump" aria-selected="false" style="--soft:#AFC5D2;--strong:#3F6A80">
+  aria-controls="pump" aria-selected="false" style="--soft:#CFE0FF;--strong:#1F6FEB">
   <svg class="motif" viewBox="0 0 400 520" preserveAspectRatio="xMidYMin slice" aria-hidden="true"><circle cx="50" cy="80" r="9" fill="currentColor" opacity=".8"/><circle cx="96" cy="80" r="9" fill="currentColor" opacity=".8"/><circle cx="142" cy="80" r="9" stroke="currentColor" fill="none" stroke-width="2" opacity=".6"/><circle cx="188" cy="80" r="9" fill="currentColor" opacity=".8"/><circle cx="234" cy="80" r="9" fill="currentColor" opacity=".8"/><circle cx="280" cy="80" r="9" fill="currentColor" opacity=".8"/><circle cx="326" cy="80" r="9" fill="currentColor" opacity=".8"/><circle cx="50" cy="126" r="9" fill="currentColor" opacity=".8"/><circle cx="96" cy="126" r="9" fill="currentColor" opacity=".8"/><circle cx="142" cy="126" r="9" fill="currentColor" opacity=".8"/><circle cx="188" cy="126" r="9" fill="currentColor" opacity=".8"/><circle cx="234" cy="126" r="9" fill="currentColor" opacity=".8"/><circle cx="280" cy="126" r="9" fill="currentColor" opacity=".8"/><circle cx="326" cy="126" r="9" stroke="currentColor" fill="none" stroke-width="2" opacity=".6"/><circle cx="50" cy="172" r="9" fill="currentColor" opacity=".8"/><circle cx="96" cy="172" r="9" fill="currentColor" opacity=".8"/><circle cx="142" cy="172" r="9" stroke="currentColor" fill="none" stroke-width="2" opacity=".6"/><circle cx="188" cy="172" r="9" fill="currentColor" opacity=".45"/><circle cx="234" cy="172" r="9" stroke="currentColor" fill="none" stroke-width="2" opacity=".6"/><circle cx="280" cy="172" r="9" fill="currentColor" opacity=".8"/><circle cx="326" cy="172" r="9" fill="currentColor" opacity=".45"/><circle cx="50" cy="218" r="9" fill="currentColor" opacity=".8"/><circle cx="96" cy="218" r="9" stroke="currentColor" fill="none" stroke-width="2" opacity=".6"/><circle cx="142" cy="218" r="9" fill="currentColor" opacity=".8"/><circle cx="188" cy="218" r="9" fill="currentColor" opacity=".8"/><circle cx="234" cy="218" r="9" fill="currentColor" opacity=".8"/><circle cx="280" cy="218" r="9" fill="currentColor" opacity=".8"/><circle cx="326" cy="218" r="9" stroke="currentColor" fill="none" stroke-width="2" opacity=".6"/><circle cx="50" cy="264" r="9" fill="currentColor" opacity=".8"/><circle cx="96" cy="264" r="9" stroke="currentColor" fill="none" stroke-width="2" opacity=".6"/><circle cx="142" cy="264" r="9" stroke="currentColor" fill="none" stroke-width="2" opacity=".6"/><circle cx="188" cy="264" r="9" fill="currentColor" opacity=".8"/><circle cx="234" cy="264" r="9" stroke="currentColor" fill="none" stroke-width="2" opacity=".6"/><circle cx="280" cy="264" r="9" fill="currentColor" opacity=".8"/><circle cx="326" cy="264" r="9" fill="currentColor" opacity=".8"/><circle cx="50" cy="310" r="9" fill="currentColor" opacity=".8"/><circle cx="96" cy="310" r="9" stroke="currentColor" fill="none" stroke-width="2" opacity=".6"/><circle cx="142" cy="310" r="9" fill="currentColor" opacity=".8"/><circle cx="188" cy="310" r="9" fill="currentColor" opacity=".8"/><circle cx="234" cy="310" r="9" stroke="currentColor" fill="none" stroke-width="2" opacity=".6"/><circle cx="280" cy="310" r="9" fill="currentColor" opacity=".8"/><circle cx="326" cy="310" r="9" fill="currentColor" opacity=".8"/><circle cx="50" cy="356" r="9" stroke="currentColor" fill="none" stroke-width="2" opacity=".6"/><circle cx="96" cy="356" r="9" stroke="currentColor" fill="none" stroke-width="2" opacity=".6"/><circle cx="142" cy="356" r="9" fill="currentColor" opacity=".8"/><circle cx="188" cy="356" r="9" stroke="currentColor" fill="none" stroke-width="2" opacity=".6"/><circle cx="234" cy="356" r="9" fill="currentColor" opacity=".8"/><circle cx="280" cy="356" r="9" stroke="currentColor" fill="none" stroke-width="2" opacity=".6"/><circle cx="326" cy="356" r="9" stroke="currentColor" fill="none" stroke-width="2" opacity=".6"/></svg>
   <span class="panel-n">02</span>
   <span class="panel-short">Pump It Up</span>
@@ -396,7 +428,7 @@ h1 .soft { color: var(--faint); }
   </span>
 </button>
 <button class="panel" type="button" role="tab" id="tab-glucose" data-target="glucose"
-  aria-controls="glucose" aria-selected="false" style="--soft:#DDAAC2;--strong:#9C4D72">
+  aria-controls="glucose" aria-selected="false" style="--soft:#F9D0E8;--strong:#C2338A">
   <svg class="motif" viewBox="0 0 400 520" preserveAspectRatio="xMidYMin slice" aria-hidden="true"><circle cx="121" cy="319" r="5" fill="currentColor" opacity=".75"/><circle cx="231" cy="248" r="5" fill="currentColor" opacity=".75"/><circle cx="238" cy="254" r="5" fill="currentColor" opacity=".75"/><circle cx="301" cy="201" r="5" fill="currentColor" opacity=".75"/><circle cx="128" cy="346" r="5" fill="currentColor" opacity=".75"/><circle cx="191" cy="372" r="5" fill="currentColor" opacity=".75"/><circle cx="301" cy="163" r="5" fill="currentColor" opacity=".75"/><circle cx="95" cy="369" r="5" fill="currentColor" opacity=".75"/><circle cx="240" cy="269" r="5" fill="currentColor" opacity=".75"/><circle cx="272" cy="199" r="5" fill="currentColor" opacity=".75"/><circle cx="251" cy="279" r="5" fill="currentColor" opacity=".75"/><circle cx="227" cy="275" r="5" fill="currentColor" opacity=".75"/><circle cx="140" cy="379" r="5" fill="currentColor" opacity=".75"/><circle cx="192" cy="297" r="5" fill="currentColor" opacity=".75"/><circle cx="266" cy="257" r="5" fill="currentColor" opacity=".75"/><circle cx="326" cy="151" r="5" fill="currentColor" opacity=".75"/><circle cx="168" cy="314" r="5" fill="currentColor" opacity=".75"/><circle cx="331" cy="149" r="5" fill="currentColor" opacity=".75"/><circle cx="314" cy="201" r="5" fill="currentColor" opacity=".75"/><circle cx="115" cy="356" r="5" fill="currentColor" opacity=".75"/><circle cx="340" cy="135" r="5" fill="currentColor" opacity=".75"/><circle cx="140" cy="342" r="5" fill="currentColor" opacity=".75"/><circle cx="202" cy="260" r="5" fill="currentColor" opacity=".75"/><circle cx="226" cy="275" r="5" fill="currentColor" opacity=".75"/><circle cx="225" cy="292" r="5" fill="currentColor" opacity=".75"/><circle cx="329" cy="155" r="5" fill="currentColor" opacity=".75"/><circle cx="307" cy="233" r="5" fill="currentColor" opacity=".75"/><circle cx="99" cy="359" r="5" fill="currentColor" opacity=".75"/><circle cx="308" cy="248" r="5" fill="currentColor" opacity=".75"/><circle cx="221" cy="251" r="5" fill="currentColor" opacity=".75"/><circle cx="264" cy="241" r="5" fill="currentColor" opacity=".75"/><circle cx="222" cy="310" r="5" fill="currentColor" opacity=".75"/><circle cx="135" cy="379" r="5" fill="currentColor" opacity=".75"/><circle cx="347" cy="182" r="5" fill="currentColor" opacity=".75"/><line x1="40" y1="408" x2="360" y2="152" stroke="currentColor" stroke-width="2.5"/></svg>
   <span class="panel-n">03</span>
   <span class="panel-short">Glucose Tolerance</span>
@@ -408,7 +440,7 @@ h1 .soft { color: var(--faint); }
   </span>
 </button>
 <button class="panel" type="button" role="tab" id="tab-loans" data-target="loans"
-  aria-controls="loans" aria-selected="false" style="--soft:#C3CF8F;--strong:#56671F">
+  aria-controls="loans" aria-selected="false" style="--soft:#C4F0DD;--strong:#0E8A60">
   <svg class="motif" viewBox="0 0 400 520" preserveAspectRatio="xMidYMin slice" aria-hidden="true"><polygon points="40,440 40,420 56,405 72,387 88,369 104,348 120,331 136,310 152,306 168,293 184,272 200,257 216,236 232,230 248,218 264,210 280,196 296,181 312,177 328,169 344,160 360,140 360,440" fill="currentColor" opacity=".18"/><polyline points="40,420 56,405 72,387 88,369 104,348 120,331 136,310 152,306 168,293 184,272 200,257 216,236 232,230 248,218 264,210 280,196 296,181 312,177 328,169 344,160 360,140" stroke="currentColor" fill="none" stroke-width="3"/><line x1="40" y1="300" x2="360" y2="300" stroke="currentColor" stroke-dasharray="6 6" opacity=".6"/></svg>
   <span class="panel-n">04</span>
   <span class="panel-short">Easy Loans</span>
@@ -420,7 +452,7 @@ h1 .soft { color: var(--faint); }
   </span>
 </button>
 <button class="panel" type="button" role="tab" id="tab-game" data-target="game"
-  aria-controls="game" aria-selected="false" style="--soft:#CBBDEA;--strong:#5E4B9A">
+  aria-controls="game" aria-selected="false" style="--soft:#DDD5FC;--strong:#6346C9">
   <svg class="motif" viewBox="0 0 400 520" preserveAspectRatio="xMidYMin slice" aria-hidden="true"><rect x="40" y="100" width="320" height="16" rx="8" fill="currentColor" opacity=".14"/><rect x="40" y="100" width="320" height="16" rx="8" fill="currentColor" opacity=".85"/><rect x="40" y="152" width="320" height="16" rx="8" fill="currentColor" opacity=".14"/><rect x="200.0" y="152" width="160.0" height="16" rx="8" fill="currentColor" opacity=".85"/><rect x="40" y="204" width="320" height="16" rx="8" fill="currentColor" opacity=".14"/><rect x="200.0" y="204" width="80.0" height="16" rx="8" fill="currentColor" opacity=".85"/><rect x="40" y="256" width="320" height="16" rx="8" fill="currentColor" opacity=".14"/><rect x="240.0" y="256" width="40.0" height="16" rx="8" fill="currentColor" opacity=".85"/><rect x="40" y="308" width="320" height="16" rx="8" fill="currentColor" opacity=".14"/><rect x="240.0" y="308" width="20.0" height="16" rx="8" fill="currentColor" opacity=".85"/><rect x="40" y="360" width="320" height="16" rx="8" fill="currentColor" opacity=".14"/><rect x="250.0" y="360" width="10.0" height="16" rx="8" fill="currentColor" opacity=".85"/></svg>
   <span class="panel-n">05</span>
   <span class="panel-short">Guess the Number</span>
@@ -432,7 +464,7 @@ h1 .soft { color: var(--faint); }
   </span>
 </button>
 <button class="panel" type="button" role="tab" id="tab-hostnames" data-target="hostnames"
-  aria-controls="hostnames" aria-selected="false" style="--soft:#F2DA86;--strong:#8F6B0B">
+  aria-controls="hostnames" aria-selected="false" style="--soft:#FFE3B0;--strong:#B26A00">
   <svg class="motif" viewBox="0 0 400 520" preserveAspectRatio="xMidYMin slice" aria-hidden="true"><text x="40" y="120" font-family="ui-monospace, Menlo, monospace" font-size="38" letter-spacing="4" fill="currentColor" opacity="0.95">AIGER789</text><text x="40" y="176" font-family="ui-monospace, Menlo, monospace" font-size="38" letter-spacing="4" fill="currentColor" opacity="0.35">LPIRL042</text><text x="40" y="232" font-family="ui-monospace, Menlo, monospace" font-size="38" letter-spacing="4" fill="currentColor" opacity="0.35">STESP317</text><text x="40" y="288" font-family="ui-monospace, Menlo, monospace" font-size="38" letter-spacing="4" fill="currentColor" opacity="0.35">HDNOR005</text><text x="40" y="344" font-family="ui-monospace, Menlo, monospace" font-size="38" letter-spacing="4" fill="currentColor" opacity="0.35">LSGER620</text><text x="40" y="400" font-family="ui-monospace, Menlo, monospace" font-size="38" letter-spacing="4" fill="currentColor" opacity="0.35">APITA118</text></svg>
   <span class="panel-n">06</span>
   <span class="panel-short">Hostname Generator</span>
@@ -445,7 +477,7 @@ h1 .soft { color: var(--faint); }
 </button></div>
     </div>
     <div class="cases">
-<section class="project" id="restaurants" style="--accent:#B8322C;--accent-ink:#B8322C;--mid:#EBA19A" role="tabpanel" aria-labelledby="tab-restaurants" tabindex="-1">
+<section class="project" id="restaurants" style="--accent:#D93D42;--accent-ink:#D93D42;--mid:#FFD3D0;--soft:#FFD3D0" role="tabpanel" aria-labelledby="tab-restaurants" tabindex="-1">
   <header class="p-head">
     <span class="p-n" aria-hidden="true">01</span>
     <div>
@@ -491,7 +523,7 @@ h1 .soft { color: var(--faint); }
     <div class="p-links"><a href="https://madrid-restaurant-intelligence.streamlit.app/" target="_blank" rel="noreferrer" class=primary>Open the app<span aria-hidden="true"> ↗</span></a><a href="https://github.com/carolinagles/madrid-restaurant-intelligence" target="_blank" rel="noreferrer">Code<span aria-hidden="true"> ↗</span></a><a href="https://doi.org/10.5281/zenodo.14622324" target="_blank" rel="noreferrer">Dataset<span aria-hidden="true"> ↗</span></a></div>
   </div>
 </section>
-<section class="project" id="pump" style="--accent:#3F6A80;--accent-ink:#3F6A80;--mid:#AFC5D2" role="tabpanel" aria-labelledby="tab-pump" tabindex="-1">
+<section class="project" id="pump" style="--accent:#1F6FEB;--accent-ink:#1F6FEB;--mid:#CFE0FF;--soft:#CFE0FF" role="tabpanel" aria-labelledby="tab-pump" tabindex="-1">
   <header class="p-head">
     <span class="p-n" aria-hidden="true">02</span>
     <div>
@@ -521,7 +553,7 @@ h1 .soft { color: var(--faint); }
     <div class="p-links"><a href="https://github.com/carolinagles/PumpItUp/blob/main/PumpItUp_en.ipynb" target="_blank" rel="noreferrer" class=primary>Notebook<span aria-hidden="true"> ↗</span></a></div>
   </div>
 </section>
-<section class="project" id="glucose" style="--accent:#9C4D72;--accent-ink:#9C4D72;--mid:#DDAAC2" role="tabpanel" aria-labelledby="tab-glucose" tabindex="-1">
+<section class="project" id="glucose" style="--accent:#C2338A;--accent-ink:#C2338A;--mid:#F9D0E8;--soft:#F9D0E8" role="tabpanel" aria-labelledby="tab-glucose" tabindex="-1">
   <header class="p-head">
     <span class="p-n" aria-hidden="true">03</span>
     <div>
@@ -551,7 +583,7 @@ h1 .soft { color: var(--faint); }
     <div class="p-links"><a href="https://github.com/carolinagles/glucose_levels_statistical_analysis" target="_blank" rel="noreferrer" class=primary>Repository<span aria-hidden="true"> ↗</span></a></div>
   </div>
 </section>
-<section class="project" id="loans" style="--accent:#56671F;--accent-ink:#56671F;--mid:#C3CF8F" role="tabpanel" aria-labelledby="tab-loans" tabindex="-1">
+<section class="project" id="loans" style="--accent:#0E8A60;--accent-ink:#0E8A60;--mid:#C4F0DD;--soft:#C4F0DD" role="tabpanel" aria-labelledby="tab-loans" tabindex="-1">
   <header class="p-head">
     <span class="p-n" aria-hidden="true">04</span>
     <div>
@@ -581,7 +613,7 @@ h1 .soft { color: var(--faint); }
     <div class="p-links"><a href="https://public.tableau.com/views/EasyLoans_17918449786600/LOANOPERATIONS" target="_blank" rel="noreferrer" class=primary>Loan operations<span aria-hidden="true"> ↗</span></a><a href="https://public.tableau.com/views/EasyLoans-TopMerchants/MERCHANTANALYSIS" target="_blank" rel="noreferrer">Merchant analysis<span aria-hidden="true"> ↗</span></a></div>
   </div>
 </section>
-<section class="project" id="game" style="--accent:#5E4B9A;--accent-ink:#5E4B9A;--mid:#CBBDEA" role="tabpanel" aria-labelledby="tab-game" tabindex="-1">
+<section class="project" id="game" style="--accent:#6346C9;--accent-ink:#6346C9;--mid:#DDD5FC;--soft:#DDD5FC" role="tabpanel" aria-labelledby="tab-game" tabindex="-1">
   <header class="p-head">
     <span class="p-n" aria-hidden="true">05</span>
     <div>
@@ -622,7 +654,7 @@ h1 .soft { color: var(--faint); }
     <div class="p-links"><a href="https://guessthenumberrrr.streamlit.app/" target="_blank" rel="noreferrer" class=primary>Play the game<span aria-hidden="true"> ↗</span></a><a href="https://github.com/carolinagles/guessthenumberrrr" target="_blank" rel="noreferrer">Code<span aria-hidden="true"> ↗</span></a></div>
   </div>
 </section>
-<section class="project" id="hostnames" style="--accent:#8F6B0B;--accent-ink:#8F6B0B;--mid:#F2DA86" role="tabpanel" aria-labelledby="tab-hostnames" tabindex="-1">
+<section class="project" id="hostnames" style="--accent:#B26A00;--accent-ink:#B26A00;--mid:#FFE3B0;--soft:#FFE3B0" role="tabpanel" aria-labelledby="tab-hostnames" tabindex="-1">
   <header class="p-head">
     <span class="p-n" aria-hidden="true">06</span>
     <div>
@@ -674,7 +706,9 @@ h1 .soft { color: var(--faint); }
 </section></div>
   </section>
 
-  <footer class="wrap foot" id="contact">
+  <footer class="site-foot" id="contact">
+    <div class="strip" aria-hidden="true"><span style="background:#D93D42"></span><span style="background:#1F6FEB"></span><span style="background:#C2338A"></span><span style="background:#0E8A60"></span><span style="background:#6346C9"></span><span style="background:#B26A00"></span></div>
+    <div class="wrap foot">
     <h2>Get in touch!</h2>
     <div>
       <ul>
@@ -684,6 +718,7 @@ h1 .soft { color: var(--faint); }
         <li><a href="https://mariacarolina.streamlit.app/" target="_blank" rel="noreferrer">Main app <span aria-hidden="true">↗</span></a></li>
       </ul>
       <small>© 2026 María Carolina</small>
+    </div>
     </div>
   </footer>
 </main>
